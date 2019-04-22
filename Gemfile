@@ -9,6 +9,7 @@ gem 'erb2haml'
 
 gem 'bcrypt',         '3.1.12'
 gem 'jquery-rails', '4.3.1'
+gem 'rails-controller-testing'
 
 
 
