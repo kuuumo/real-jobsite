@@ -1,0 +1,13 @@
+%h1 Sign up
+%p please fill in
+%div
+  = form_for @user, url: signup_path do |f|
+
+    = f.label :name
+    = f.text_field :name
+
+    = f.label :email
+    = f.email_field :email
+
+    = f.submit "Create account"
+

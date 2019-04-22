@@ -7,6 +7,10 @@ ruby '2.3.7'
 gem 'haml-rails'
 gem 'erb2haml'
 
+gem 'bcrypt',         '3.1.12'
+gem 'jquery-rails', '4.3.1'
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
