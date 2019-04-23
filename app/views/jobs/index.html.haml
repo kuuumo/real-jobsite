@@ -1,0 +1,4 @@
+- provide(:title, "All jobs")
+%p All posted jobs.
+- @jobs.each do |job|
+  %li= link_to job.title, job
