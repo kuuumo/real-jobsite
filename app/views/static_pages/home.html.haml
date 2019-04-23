@@ -1,5 +1,8 @@
 %h1 Homepage
 %p this is home page
 .center.jumpbotton
-  = link_to "Sign up", signup_path
-  = link_to "Log in", '#'
+  - if logged_in?
+    =link_to "Post job", '#'
+  - else
+    = link_to "Sign up", signup_path
+    = link_to "Log in", login_path
