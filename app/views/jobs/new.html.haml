@@ -1,0 +1,13 @@
+- provide(:title, "Post Job")
+%h1 Post jobs!!
+%p Please fill in form!  m(_ _)m
+%div
+  = form_for @job, url: postjob_path do |f|
+
+    = f.label :title
+    = f.text_field :title
+
+    = f.label :content
+    = f.text_field :content
+
+    = f.submit "Post this job"

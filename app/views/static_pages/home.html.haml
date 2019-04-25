@@ -2,7 +2,7 @@
 %p this is home page
 .center.jumpbotton
   - if logged_in?
-    =link_to "Post job", '#'
+    = link_to "Post job", postjob_path
   - else
     = link_to "Sign up", signup_path
     = link_to "Log in", login_path
