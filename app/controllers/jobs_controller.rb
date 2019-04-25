@@ -13,14 +13,14 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.create(job_params)
+    @job = Job.create(content: job_params[:content], title: job_params[:title], user_id: current_user.id)
     redirect_to @job
   end
 
   private
 
     def job_params
-      params.require(:job).permit(:title, :content)
+      params.require(:job).permit(:title, :content, :user_id)
     end
 
 end
