@@ -2,6 +2,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    render action: :show2
   end
 
   def index

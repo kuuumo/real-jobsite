@@ -1,0 +1,10 @@
+- provide(:title, "Job")
+%h1= @job.title
+= @job.content
+
+%p= link_to @job.user.name, user_path(@job.user.id)
+%p
+-if like = Like.find_by(user_id: current_user.id, job_id: @job.id)
+  = link_to "bat", like_path(like), method: :delete
+-else
+  = link_to 'good!', like
