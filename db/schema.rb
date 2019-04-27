@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_04_27_064455) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["job_id"], name: "index_likes_on_job_id"
-    t.index ["user_id", nil], name: "index_likes_on_user_id_and_shop_id", unique: true
+    t.index ["user_id", "job_id"], name: "index_likes_on_user_id_and_job_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
