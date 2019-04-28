@@ -11,4 +11,5 @@
 - else
   = link_to 'good!', likes_path(params: {id: @job.id}), method: :post
 
-%p いいね数：#{ @likes_count }
+= link_to "いいね", likesuser_path(params: {id: @job.id})
+= @likes_count

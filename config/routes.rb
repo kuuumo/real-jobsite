@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete '/logout',      to: 'sessions#destory'
   get    '/postjob',     to: 'jobs#new'
   post   '/postjob',     to: 'jobs#create'
+  get    '/likesuser',   to: 'likes#index'
   resources :users
   resources :jobs
   resources :likes, only: [:create, :destroy]
