@@ -2,7 +2,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    @likes_count = Like.where(job_id: @job.id).count
+    @likes_count = @job.likes.count
     render action: :show2
   end
 
