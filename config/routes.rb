@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root   'static_pages#home'
   get    '/signup',      to: 'users#new'
   post   '/signup',      to: 'users#create'
@@ -7,8 +8,10 @@ Rails.application.routes.draw do
   delete '/logout',      to: 'sessions#destory'
   get    '/postjob',     to: 'jobs#new'
   post   '/postjob',     to: 'jobs#create'
-  get    '/likesuser',   to: 'likes#index'
-  resources :users
-  resources :jobs
-  resources :likes, only: [:create, :destroy]
+
+  resources :users, shallow: true do
+    resources :jobs
+    resources :likes, only: [:create, :destroy, :index]
+  end
+
 end
