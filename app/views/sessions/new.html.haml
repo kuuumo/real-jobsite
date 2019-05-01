@@ -1,7 +1,7 @@
 - provide(:title, "Log in")
 %h1 Login
 %div
-  = form_for(:session, url: login_path) do |f|
+  = form_for(:session, url: sessions_path) do |f|
     = f.label :email
     = f.email_field :email
 
