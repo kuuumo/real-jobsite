@@ -1,5 +1,10 @@
 class LikesController < ApplicationController
 
+  def index
+    @job = Job.find(params[:id])
+    @likes = @job.likes
+  end
+
   def create
     @job = Job.find(params[:id])
     @job.likes.create(user_id: current_user.id)

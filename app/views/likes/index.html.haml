@@ -1,0 +1,4 @@
+%h1 いいね一覧
+
+- @likes.each do |like|
+  %li= link_to like.user.name, like.user

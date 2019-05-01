@@ -9,6 +9,7 @@
   - like = Like.find_by(user_id: current_user.id, job_id: @job.id)
   = link_to "bat", like_path(like,params: {job_id: @job.id}), method: :delete
 - else
-  = link_to 'good!', likes_path(params: {id: @job.id}), method: :post
+  = link_to 'good!', user_likes_path(current_user, params: {id: @job.id}), method: :post
 
-%p いいね数：#{ @likes_count }
+= link_to "いいね", user_likes_path(current_user, params: {id: @job.id})
+= @likes_count

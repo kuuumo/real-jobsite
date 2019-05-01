@@ -6,4 +6,4 @@
 = @user.email
 %p Job:
 - @user.jobs.each do |j|
-  = link_to j.title, job_path(j.id)
+  = link_to j.title, user_jobs_path(j.id)

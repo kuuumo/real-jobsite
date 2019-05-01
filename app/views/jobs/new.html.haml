@@ -2,7 +2,7 @@
 %h1 Post jobs!!
 %p Please fill in form!  m(_ _)m
 %div
-  = form_for @job, url: postjob_path do |f|
+  = form_for @job, url: user_jobs_path do |f|
 
     = f.label :title
     = f.text_field :title
