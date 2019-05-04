@@ -10,4 +10,6 @@ class User < ApplicationRecord
 
   has_many :jobs
   has_many :likes
+  has_many :messages, dependent: :destroy
+  has_many :entries,  dependent: :destroy
 end
