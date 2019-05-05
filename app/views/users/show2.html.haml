@@ -6,4 +6,10 @@
 = @user.email
 %p Job:
 - @user.jobs.each do |j|
-  = link_to j.title, user_jobs_path(j.id)
+  %li= link_to j.title, user_jobs_path(j.id)
+
+-if @user.id != current_user.id
+  -if (@entry = Entry.find_by(user_id: params[:id], from_id: current_user.id))
+    = link_to "チャットへ", room_path(@entry.room)
+  -else
+    = link_to "チャットを開始", user_rooms_path(@user), method: :post
