@@ -1,2 +1,8 @@
-%h1 Rooms#index
-%p Find me in app/views/rooms/index.html.haml
+%h1 Applicant
+
+- @userRooms.each do |room|
+  - (@sender = User.find_by(id: room.sender))
+  -if @sender.present?
+    %li= link_to @sender.name, room_messages_path(room)
+  -else
+    %p "応募者はいません"

@@ -5,10 +5,11 @@ class RoomsController < ApplicationController
   end
 
   def index
+    @userRooms = Room.where(receiver: params[:user_id])
   end
 
   def create
-    @room = Room.create(sender: params[:user_id], receiver: current_user.id)
+    @room = Room.create(sender: current_user.id, receiver: params[:user_id])
     redirect_to room_messages_path(@room)
   end
 

@@ -8,6 +8,7 @@
           %li= link_to "Jobs", user_jobs_path(current_user)
           %li= link_to "Log out", session_path(current_user), method: :delete
           %li= link_to "Post job", new_user_job_path(current_user)
+          %li= link_to "Chats", user_rooms_path(current_user)
         - else
           %li= link_to "Log in", new_session_path
 
