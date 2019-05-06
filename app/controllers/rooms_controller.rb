@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
     @entry = Entry.find_by(room_id: params[:id])
     @user = User.find_by(id: @entry.user_id)
     @room = Room.find(params[:id])
-    @messages = Message.where(room_id: @room.id)
+    @messages = @room.messages
     @message = Message.create
     render action: :show2
   end
@@ -14,7 +14,6 @@ class RoomsController < ApplicationController
     @entry = Entry.new(user_id: params[:user_id], from_id: current_user.id,
                           room_id: @room.id)
     @entry.save!
-    byebug
     redirect_to @room
   end
 

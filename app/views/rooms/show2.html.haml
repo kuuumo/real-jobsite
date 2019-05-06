@@ -1,5 +1,5 @@
 %h1
-  = @user.name
+  =@user.name
 
 
 -if @messages.present?
@@ -13,7 +13,7 @@
 = form_for @message, url:user_messages_path(current_user) do |f|
   = f.label :content
   = f.text_field :content
-  = f.hidden_field :room_id, :value => @room.id
+  = f.hidden_field :room_id, value: @room.id
 
   =f.submit "送信"
 
