@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_111735) do
+ActiveRecord::Schema.define(version: 2019_05_06_214851) do
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
@@ -36,13 +36,14 @@ ActiveRecord::Schema.define(version: 2019_05_06_111735) do
     t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "content"
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
     t.integer "sender"
-    t.integer "recever"
+    t.integer "receiver"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
