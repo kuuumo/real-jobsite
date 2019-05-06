@@ -10,4 +10,6 @@ class User < ApplicationRecord
 
   has_many :jobs
   has_many :likes
+  has_many :rooms
+  has_many :messages
 end
