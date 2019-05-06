@@ -1,0 +1,19 @@
+%h1= @user.name
+%p
+  -if @messages.present?
+    -@messages.each do |message|
+      %li
+        %strong= message.content
+        %small= message.user.name
+  -else
+    = "メッセージはありません。"
+
+= form_for(@message, url: room_messages_path(@room)) do |message|
+  = message.label :content
+  = message.text_field :content
+
+  = message.hidden_field :user_id, value: @room.receiver
+
+  = message.submit "送信"
+
+
