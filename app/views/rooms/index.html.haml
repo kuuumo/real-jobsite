@@ -1,6 +1,6 @@
 %h1 Applicant
 
-- @userRooms.each do |room|
+- @user_rooms.each do |room|
   - (@sender = User.find_by(id: room.sender))
   -if @sender.present?
     %li= link_to @sender.name, room_messages_path(room)
