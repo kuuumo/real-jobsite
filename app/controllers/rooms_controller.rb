@@ -1,9 +1,4 @@
 class RoomsController < ApplicationController
-  def show
-    @room = Room.find(params[:id])
-    @user = User.find(id: @room.receiver)
-  end
-
   def index
     @user_rooms = Room.where(receiver: current_user.id)
   end

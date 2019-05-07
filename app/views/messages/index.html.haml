@@ -7,7 +7,7 @@
     -@messages.each do |message|
       %li
         %strong= message.content
-        %small= User.find_by(id: message.user_id).name
+        %small= User.find(message.user_id).name
   -else
     = "メッセージはありません。"
 

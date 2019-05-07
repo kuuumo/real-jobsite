@@ -4,8 +4,8 @@ class MessagesController < ApplicationController
     @message = Message.new
     @room = Room.find(params[:room_id])
     @messages = Message.where(room_id: @room.id)
-    @receiver = User.find_by(id: @room.receiver)
-    @applicant = User.find_by(id: @room.sender)
+    @receiver = User.find(@room.receiver)
+    @applicant = User.find(@room.sender)
   end
 
   def create
