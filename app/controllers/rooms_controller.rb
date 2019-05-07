@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
   end
 
   def index
-    @userRooms = Room.where(receiver: params[:user_id])
+    @user_rooms = Room.where(receiver: current_user.id)
   end
 
   def create
@@ -13,8 +13,4 @@ class RoomsController < ApplicationController
     redirect_to room_messages_path(@room)
   end
 
-  private
-    def room_params
-      params.require(:room).permit(:sender, :receiver)
-    end
 end

@@ -4,12 +4,12 @@ class MessagesController < ApplicationController
     @message = Message.new
     @room = Room.find(params[:room_id])
     @messages = Message.where(room_id: @room.id)
-    @user = User.find_by(id: @room.receiver)
+    @receiver = User.find_by(id: @room.receiver)
+    @applicant = User.find_by(id: @room.sender)
   end
 
   def create
-    @message = Message.create(user_id: message_params[:user_id], room_id: params[:room_id],
-                              content: message_params[:content])
+    @message = Message.create(message_params)
     redirect_to room_messages_path(params[:room_id])
   end
 

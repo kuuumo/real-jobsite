@@ -1,10 +1,13 @@
-%h1= @user.name
+-if @user == current_user
+  %h1= @applicant.name
+-else
+  %h1= @receiver.name
 %p
   -if @messages.present?
     -@messages.each do |message|
       %li
         %strong= message.content
-        %small= message.user.name
+        %small= User.find_by(id: message.user_id).name
   -else
     = "メッセージはありません。"
 
@@ -12,7 +15,8 @@
   = message.label :content
   = message.text_field :content
 
-  = message.hidden_field :user_id, value: @room.receiver
+  = message.hidden_field :room_id, value: @room.id
+  = message.hidden_field :user_id, value: current_user.id
 
   = message.submit "送信"
 
